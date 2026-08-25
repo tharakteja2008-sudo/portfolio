@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P THARAK TEJA | CS Student & Full-Stack Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of P THARAK TEJA, Computer Science student and software engineer. Showcasing full-stack software engineering projects, algorithms, systems tools, and technical skills.">
+  <meta name="keywords" content="P THARAK TEJA, Computer Science, Software Engineer, Portfolio, Full-Stack, React, Python, TypeScript, Algorithms, Web Development">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="selection:bg-sky-500 selection:text-white">
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md group-hover:scale-105 transition-transform">
+          &lt;/&gt;
+        </div>
+        <span id="brand-name" class="font-bold text-base md:text-lg tracking-tight group-hover:text-sky-400 transition-colors">P THARAK TEJA</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#about" class="nav-link hover:text-sky-400 transition-colors">About</a>
+        <a href="#skills" class="nav-link hover:text-sky-400 transition-colors">Skills</a>
+        <a href="#projects" class="nav-link hover:text-sky-400 transition-colors">Projects</a>
+        <a href="#visualizer" class="nav-link hover:text-sky-400 transition-colors">Playground</a>
+        <a href="#experience" class="nav-link hover:text-sky-400 transition-colors">Experience</a>
+        <a href="#contact" class="nav-link hover:text-sky-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Buttons & Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Interactive Terminal Launch Button -->
+        <button class="open-terminal-btn hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-xs font-mono text-emerald-400 border border-emerald-500/30 transition-all shadow-sm" title="Launch Developer Terminal (Ctrl + ~)">
+          <i class="fa-solid fa-terminal"></i>
+          <span>CLI</span>
+          <kbd class="text-[10px] bg-slate-900 px-1.5 py-0.5 rounded text-slate-400 border border-slate-700">~</kbd>
+        </button>
+
+        <!-- Resume Modal Button -->
+        <button class="open-resume-btn hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-xs font-semibold text-sky-400 border border-sky-500/30 transition-all">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>Resume</span>
+        </button>
+
+        <!-- Share Website Button -->
+        <button id="share-portfolio-btn" class="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700 text-slate-300 hover:text-sky-400 border border-white/10 transition-colors" title="Share Portfolio Link" aria-label="Share Portfolio">
+          <i class="fa-solid fa-share-nodes text-sm"></i>
+        </button>
+
+        <!-- Theme Selector Switcher -->
+        <div class="relative group">
+          <button class="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700 text-slate-300 hover:text-white border border-white/10 transition-colors" title="Change Visual Theme" aria-label="Change Theme">
+            <i class="fa-solid fa-palette text-sm"></i>
+          </button>
+          <div class="absolute right-0 mt-2 w-36 py-2 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all text-xs font-medium z-50">
+            <button data-theme-choice="dark" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 flex items-center gap-2 text-slate-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> Cyber Dark
+            </button>
+            <button data-theme-choice="slate" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 flex items-center gap-2 text-slate-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span> Midnight Slate
+            </button>
+            <button data-theme-choice="matrix" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 flex items-center gap-2 text-slate-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Matrix Terminal
+            </button>
+            <button data-theme-choice="light" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 flex items-center gap-2 text-slate-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Clean Light
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-menu" class="md:hidden hidden bg-slate-900/95 border-b border-white/10 px-4 py-4 space-y-3">
+      <a href="#about" class="block text-sm font-medium text-slate-300 hover:text-sky-400">About</a>
+      <a href="#skills" class="block text-sm font-medium text-slate-300 hover:text-sky-400">Skills</a>
+      <a href="#projects" class="block text-sm font-medium text-slate-300 hover:text-sky-400">Projects</a>
+      <a href="#visualizer" class="block text-sm font-medium text-slate-300 hover:text-sky-400">Algorithm Playground</a>
+      <a href="#experience" class="block text-sm font-medium text-slate-300 hover:text-sky-400">Experience & Awards</a>
+      <a href="#contact" class="block text-sm font-medium text-slate-300 hover:text-sky-400">Contact</a>
+      <div class="pt-2 flex gap-2">
+        <button class="open-terminal-btn flex-1 py-2 text-xs font-mono bg-slate-800 rounded-lg text-emerald-400 border border-emerald-500/30">
+          <i class="fa-solid fa-terminal mr-1"></i> Developer CLI
+        </button>
+        <button class="open-resume-btn flex-1 py-2 text-xs font-semibold bg-sky-500/10 rounded-lg text-sky-400 border border-sky-500/30">
+          <i class="fa-solid fa-file-pdf mr-1"></i> View Resume
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="relative pt-6 pb-12 lg:pt-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Left Column: Intro & Headline -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Availability Status Badge -->
+          <div id="hero-status" class="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping inline-block mr-2"></span>
+            <span class="text-xs font-mono text-emerald-300 font-semibold tracking-wide uppercase">Open to SWE Internships</span>
+          </div>
+
+          <!-- Main Headline with Typewriter -->
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+              Hi, I'm <span id="hero-name" class="text-gradient">P THARAK TEJA</span>
+            </h1>
+            <div class="text-xl sm:text-2xl font-mono text-slate-300 font-medium h-10 flex items-center">
+              <span id="typewriter-text" class="typewriter-cursor text-sky-400"></span>
+            </div>
+          </div>
+
+          <!-- Short Bio -->
+          <p id="hero-bio" class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            Computer Science undergraduate passionate about building scalable web applications, distributed systems, and intelligent AI tools.
+          </p>
+
+          <!-- Location & Tags -->
+          <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-location-dot text-sky-400"></i>
+              <span id="hero-location">San Francisco Bay Area / Remote</span>
+            </span>
+          </div>
+
+          <!-- CTA Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#projects" class="btn-primary">
+              <i class="fa-solid fa-code"></i> Explore Projects
+            </a>
+            <button class="open-resume-btn btn-secondary">
+              <i class="fa-solid fa-file-lines"></i> View Resume
+            </button>
+            <button class="open-terminal-btn btn-secondary text-emerald-400 border-emerald-500/30">
+              <i class="fa-solid fa-terminal"></i> Launch CLI
+            </button>
+          </div>
+
+          <!-- Quick Social Connect Badges -->
+          <div class="flex flex-wrap items-center gap-2.5 pt-1">
+            <span class="text-xs font-mono text-slate-500">Connect:</span>
+            <a id="hero-github-link" href="https://github.com/tharakteja2008-sudo" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-white/5 transition-all text-xs flex items-center gap-1.5" title="GitHub Profile">
+              <i class="fa-brands fa-github text-sm"></i> <span class="font-mono">GitHub</span>
+            </a>
+            <a id="hero-linkedin-link" href="https://www.linkedin.com/in/tharak-teja" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-sky-400 border border-white/5 transition-all text-xs flex items-center gap-1.5" title="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin text-sm text-sky-400"></i> <span class="font-mono">LinkedIn</span>
+            </a>
+            <a id="hero-leetcode-link" href="https://leetcode.com/u/ufNAallf9A" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-amber-400 border border-white/5 transition-all text-xs flex items-center gap-1.5" title="LeetCode Profile">
+              <i class="fa-solid fa-code text-sm text-amber-400"></i> <span class="font-mono">LeetCode</span>
+            </a>
+            <a id="hero-hackerrank-link" href="https://hackerrank.com/profile/tharakteja2008_s" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-emerald-400 border border-white/5 transition-all text-xs flex items-center gap-1.5" title="HackerRank Profile">
+              <i class="fa-brands fa-hackerrank text-sm text-emerald-400"></i> <span class="font-mono">HackerRank</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats Row -->
+          <div id="hero-stats-container" class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/10">
+            <!-- Populated dynamically via app.js -->
+          </div>
+
+        </div>
+
+        <!-- Hero Right Column: Interactive Code Card -->
+        <div class="lg:col-span-5">
+          <div class="ide-window">
+            <div class="ide-header">
+              <div class="window-dots">
+                <span class="window-dot dot-red"></span>
+                <span class="window-dot dot-yellow"></span>
+                <span class="window-dot dot-green"></span>
+              </div>
+              <span class="text-xs font-mono text-slate-400 font-medium">candidate_profile.py</span>
+              <button id="run-hero-code-btn" class="px-2.5 py-1 rounded bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 font-mono text-[11px] font-semibold border border-sky-500/30 transition-colors flex items-center gap-1.5" title="Run Code">
+                <i class="fa-solid fa-play text-[9px]"></i> Run Code
+              </button>
+            </div>
+            <div class="p-4 font-mono text-xs text-slate-300 space-y-1 overflow-x-auto">
+              <p><span class="text-purple-400">class</span> <span class="text-yellow-300">StudentDeveloper</span>:</p>
+              <p class="pl-4"><span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(self):</p>
+              <p class="pl-8">self.name = <span class="text-emerald-300">"P THARAK TEJA"</span></p>
+              <p class="pl-8">self.college = <span class="text-emerald-300">"SVCE Tirupati"</span></p>
+              <p class="pl-8">self.degree = <span class="text-emerald-300">"B.Tech CSE '26"</span></p>
+              <p class="pl-8">self.skills = [<span class="text-emerald-300">"Generative AI"</span>, <span class="text-emerald-300">"Coding & DSA"</span>, <span class="text-emerald-300">"Problem Solving"</span>]</p>
+              <p class="pl-4"><span class="text-purple-400">def</span> <span class="text-blue-400">is_hirable</span>(self):</p>
+              <p class="pl-8"><span class="text-purple-400">return</span> <span class="text-indigo-400">True</span> <span class="text-slate-500"># ready for high impact</span></p>
+            </div>
+            <div class="bg-black/60 p-3 border-t border-white/10 font-mono text-xs min-h-[85px] flex items-center" id="hero-code-output">
+              <span class="text-slate-500">Click [Run Code] above to execute profile verification...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT & EDUCATION SECTION ==================== -->
+    <section id="about" class="space-y-8 scroll-mt-20">
+      <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+        <span class="font-mono text-sky-400 text-sm font-bold">01.</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">About & Academic Journey</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: Detailed Bio -->
+        <div class="lg:col-span-7 space-y-4">
+          <div id="about-bio-paragraphs" class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base">
+            <!-- Injected dynamically -->
+          </div>
+          
+          <div class="pt-4">
+            <h3 class="text-sm font-mono font-bold uppercase tracking-wider text-sky-400 mb-3">Academic Honors & Distinctions</h3>
+            <ul id="edu-honors" class="space-y-2">
+              <!-- Injected dynamically -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: University & Coursework Card -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-xl flex-shrink-0">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div>
+                <h3 id="edu-institution" class="font-bold text-lg text-slate-100">SVCE Tirupati</h3>
+                <p id="edu-degree" class="text-xs text-sky-400 font-medium">B.Tech in Computer Science & Engineering</p>
+                <p id="edu-meta" class="text-xs font-mono text-slate-400 mt-1">Graduation: May 2026 | CGPA: 8.9 / 10</p>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/10">
+              <div class="flex justify-between items-center mb-3">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">Core Coursework</h4>
+                <span class="text-[11px] text-emerald-400 font-mono">Straight A's</span>
+              </div>
+              <div id="courses-grid" class="space-y-2 max-h-[300px] overflow-y-auto pr-1">
+                <!-- Coursework injected dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS MATRIX SECTION ==================== -->
+    <section id="skills" class="space-y-8 scroll-mt-20">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-sky-400 text-sm font-bold">02.</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Technical Skills Matrix</h2>
+        </div>
+        
+        <!-- Live Skill Search Bar -->
+        <div class="relative w-full sm:w-64">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+          <input type="text" id="skill-search-input" placeholder="Filter skills (e.g. React, Python)..." class="w-full bg-slate-900/80 border border-white/10 rounded-xl pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-sky-500 font-mono placeholder:text-slate-500">
+        </div>
+      </div>
+
+      <!-- Skill Category Cards Container -->
+      <div id="skills-categories-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Injected dynamically from portfolio-data.js -->
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED PROJECTS SECTION ==================== -->
+    <section id="projects" class="space-y-8 scroll-mt-20">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-sky-400 text-sm font-bold">03.</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Featured Projects & Case Studies</h2>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button data-filter="all" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-sky-500 text-white font-bold transition-all">All</button>
+          <button data-filter="fullstack" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">Full-Stack</button>
+          <button data-filter="ai" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">AI / ML</button>
+          <button data-filter="systems" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">Systems & CLI</button>
+          <button data-filter="webapps" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 hover:text-white transition-all">Web Apps</button>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projects-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Injected dynamically from portfolio-data.js -->
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE ALGORITHM PLAYGROUND SECTION ==================== -->
+    <section id="visualizer" class="space-y-8 scroll-mt-20">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-sky-400 text-sm font-bold">04.</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Live Algorithm Playground</h2>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Interactive sorting visualizer built from scratch to demonstrate frontend animation and algorithmic step execution.</p>
+        </div>
+
+        <!-- Controls Toolbar -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Algorithm Selector -->
+          <select id="vis-algo-select" class="bg-slate-900 border border-white/10 text-xs font-mono text-sky-300 px-3 py-1.5 rounded-lg focus:outline-none focus:border-sky-500">
+            <option value="bubblesort">Bubble Sort</option>
+            <option value="quicksort">Quick Sort</option>
+            <option value="selectionsort">Selection Sort</option>
+            <option value="insertionsort">Insertion Sort</option>
+          </select>
+
+          <!-- Speed Selector -->
+          <select id="vis-speed-select" class="bg-slate-900 border border-white/10 text-xs font-mono text-slate-300 px-2.5 py-1.5 rounded-lg focus:outline-none focus:border-sky-500">
+            <option value="fast">Fast</option>
+            <option value="normal" selected>Normal</option>
+            <option value="slow">Slow</option>
+          </select>
+
+          <!-- Action Buttons -->
+          <button id="vis-start-btn" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-mono text-xs font-bold transition-all flex items-center gap-1">
+            <i class="fa-solid fa-play"></i> Sort
+          </button>
+          <button id="vis-pause-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs transition-all flex items-center gap-1">
+            <i class="fa-solid fa-pause"></i> Pause
+          </button>
+          <button id="vis-step-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs transition-all flex items-center gap-1">
+            <i class="fa-solid fa-forward-step"></i> Step
+          </button>
+          <button id="vis-reset-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs transition-all flex items-center gap-1">
+            <i class="fa-solid fa-rotate-right"></i> Randomize
+          </button>
+        </div>
+      </div>
+
+      <!-- Playground Canvas & Metrics Card -->
+      <div id="visualizer-container" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Bars Canvas Container -->
+        <div class="lg:col-span-8 space-y-3">
+          <div class="visualizer-canvas-container" id="vis-bars-container">
+            <!-- Dynamic sorting bars rendered here -->
+          </div>
+
+          <!-- Color Legend -->
+          <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 px-2">
+            <div class="flex items-center gap-4">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-sky-400"></span> Normal</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-amber-400"></span> Comparing</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-red-500"></span> Swapping</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-emerald-400"></span> Sorted</span>
+            </div>
+            <div>Elements: <span class="text-sky-400 font-bold">18</span></div>
+          </div>
+        </div>
+
+        <!-- Complexity & Live Code Info -->
+        <div class="lg:col-span-4 space-y-4">
+          <!-- Stats Card -->
+          <div class="glass-card p-4 rounded-xl space-y-3">
+            <div class="grid grid-cols-2 gap-2 text-center">
+              <div class="bg-slate-900/60 p-2.5 rounded-lg border border-white/5">
+                <span class="text-xs text-slate-400 block">Comparisons</span>
+                <span id="vis-stat-comparisons" class="text-lg font-mono font-bold text-amber-400">0</span>
+              </div>
+              <div class="bg-slate-900/60 p-2.5 rounded-lg border border-white/5">
+                <span class="text-xs text-slate-400 block">Swaps</span>
+                <span id="vis-stat-swaps" class="text-lg font-mono font-bold text-red-400">0</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+              <div class="bg-slate-900/60 p-2 rounded-lg border border-white/5">
+                <span class="text-slate-400 block text-[10px]">Time Complexity</span>
+                <span id="vis-time-complexity" class="text-sky-400 font-bold">O(n²)</span>
+              </div>
+              <div class="bg-slate-900/60 p-2 rounded-lg border border-white/5">
+                <span class="text-slate-400 block text-[10px]">Space Complexity</span>
+                <span id="vis-space-complexity" class="text-emerald-400 font-bold">O(1)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code Snippet -->
+          <div class="glass-card p-3 rounded-xl">
+            <span class="text-[11px] font-mono text-slate-400 block mb-1">Algorithm Python Implementation:</span>
+            <pre class="bg-black/60 p-3 rounded-lg text-[11px] font-mono text-slate-300 overflow-x-auto leading-tight" id="vis-code-snippet"></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE, AWARDS & GITHUB ACTIVITY ==================== -->
+    <section id="experience" class="space-y-8 scroll-mt-20">
+      <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+        <span class="font-mono text-sky-400 text-sm font-bold">05.</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Experience & Achievements</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: Experience Timeline -->
+        <div class="lg:col-span-7">
+          <h3 class="text-sm font-mono uppercase tracking-wider text-sky-400 font-bold mb-6">Work & Leadership Timeline</h3>
+          <div id="experience-timeline-container" class="timeline-track">
+            <!-- Experience nodes injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Awards, LeetCode & GitHub Heatmap -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <h3 class="text-sm font-mono uppercase tracking-wider text-sky-400 font-bold mb-4">Honors & Competitions</h3>
+            <div id="awards-grid-container" class="space-y-3">
+              <!-- Awards injected dynamically -->
+            </div>
+          </div>
+
+          <!-- GitHub Activity Simulator Card -->
+          <div class="glass-card p-5 rounded-xl border border-white/5 space-y-3">
+            <div class="flex items-center justify-between">
+              <a id="github-profile-anchor" href="https://github.com/tharakteja2008-sudo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-sky-400 transition-colors">
+                <i class="fa-brands fa-github text-slate-300 text-base"></i>
+                <span id="github-handle-heading" class="text-xs font-mono font-bold text-slate-200">@tharakteja2008-sudo</span>
+              </a>
+              <span id="github-stats-badge" class="text-[11px] font-mono text-emerald-400 font-semibold">1,480+ commits / year</span>
+            </div>
+            
+            <!-- Heatmap Grid -->
+            <div class="heatmap-grid" id="github-heatmap">
+              <!-- 112 cells rendered dynamically -->
+            </div>
+
+            <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-1">
+              <span>Less</span>
+              <div class="flex items-center gap-1">
+                <span class="w-2.5 h-2.5 rounded-sm bg-white/5"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-sky-400/25"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-sky-400/50"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-sky-400/75"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-sky-400"></span>
+              </div>
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT & CONNECT SECTION ==================== -->
+    <section id="contact" class="space-y-8 scroll-mt-20">
+      <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+        <span class="font-mono text-sky-400 text-sm font-bold">06.</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Get In Touch</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Contact Details & Social Links -->
+        <div class="lg:col-span-5 space-y-6">
+          <p class="text-slate-300 text-sm leading-relaxed">
+            I'm currently actively exploring software engineering internship opportunities for Summer 2025/2026. Whether you have an open role, an interesting project, or just want to chat about tech, feel free to reach out!
+          </p>
+
+          <!-- Direct Email Box with Copy Button -->
+          <div class="glass-card p-4 rounded-xl flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 overflow-hidden">
+              <div class="w-9 h-9 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 flex-shrink-0">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="overflow-hidden">
+                <span class="text-[10px] uppercase font-mono text-slate-400 block">Direct Email</span>
+                <a id="contact-email-link" href="mailto:tharakteja.dev@gmail.com" class="text-xs sm:text-sm font-mono text-slate-100 hover:text-sky-400 truncate block">tharakteja.dev@gmail.com</a>
+              </div>
+            </div>
+            <button id="copy-email-btn" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 transition-colors flex-shrink-0" title="Copy Email">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+
+          <!-- Social Links Matrix -->
+          <div class="grid grid-cols-2 gap-3">
+            <a id="contact-github-link" href="#" target="_blank" rel="noopener noreferrer" class="glass-card p-3 rounded-xl flex items-center gap-2.5 hover:border-sky-500/40 text-xs font-semibold text-slate-200">
+              <i class="fa-brands fa-github text-base text-slate-300"></i>
+              <span>GitHub</span>
+            </a>
+            <a id="contact-linkedin-link" href="#" target="_blank" rel="noopener noreferrer" class="glass-card p-3 rounded-xl flex items-center gap-2.5 hover:border-sky-500/40 text-xs font-semibold text-slate-200">
+              <i class="fa-brands fa-linkedin text-base text-sky-400"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a id="contact-leetcode-link" href="#" target="_blank" rel="noopener noreferrer" class="glass-card p-3 rounded-xl flex items-center gap-2.5 hover:border-sky-500/40 text-xs font-semibold text-slate-200">
+              <i class="fa-solid fa-code text-base text-amber-400"></i>
+              <span>LeetCode</span>
+            </a>
+            <a id="contact-hackerrank-link" href="#" target="_blank" rel="noopener noreferrer" class="glass-card p-3 rounded-xl flex items-center gap-2.5 hover:border-sky-500/40 text-xs font-semibold text-slate-200">
+              <i class="fa-brands fa-hackerrank text-base text-emerald-400"></i>
+              <span>HackerRank</span>
+            </a>
+            <a id="contact-twitter-link" href="#" target="_blank" rel="noopener noreferrer" class="glass-card p-3 rounded-xl flex items-center gap-2.5 hover:border-sky-500/40 text-xs font-semibold text-slate-200 col-span-2 sm:col-span-1">
+              <i class="fa-brands fa-x-twitter text-base text-slate-300"></i>
+              <span>X (Twitter)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Working Contact Form -->
+        <div class="lg:col-span-7">
+          <form id="portfolio-contact-form" class="glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+            <h3 class="text-lg font-bold text-slate-100 mb-2">Send a Message</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="form-sender-name" class="block text-xs font-mono text-slate-400 mb-1.5">Your Name</label>
+                <input type="text" id="form-sender-name" required placeholder="e.g. Sarah Connor" class="w-full bg-slate-900/80 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-sky-500">
+              </div>
+              <div>
+                <label for="form-sender-email" class="block text-xs font-mono text-slate-400 mb-1.5">Your Email</label>
+                <input type="email" id="form-sender-email" required placeholder="sarah@company.com" class="w-full bg-slate-900/80 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-sky-500">
+              </div>
+            </div>
+
+            <div>
+              <label for="form-sender-message" class="block text-xs font-mono text-slate-400 mb-1.5">Message / Inquiry</label>
+              <textarea id="form-sender-message" rows="4" required placeholder="Hi Alex, we'd love to chat with you about our summer SWE internship opportunities..." class="w-full bg-slate-900/80 border border-white/10 rounded-xl p-4 text-sm text-slate-100 focus:outline-none focus:border-sky-500 resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-white/10 py-12 mt-20 text-center text-xs font-mono text-slate-500 space-y-2">
+    <div class="flex justify-center items-center gap-4 text-slate-400">
+      <a href="#hero" class="hover:text-sky-400">Back to Top</a>
+      <span>•</span>
+      <button class="open-terminal-btn hover:text-emerald-400">CLI Terminal</button>
+      <span>•</span>
+      <button class="open-resume-btn hover:text-sky-400">Resume</button>
+    </div>
+    <p>Designed & Engineered with Vanilla JS, Tailwind CSS & HTML5 • Zero Build Step Needed</p>
+    <p>© 2026 P THARAK TEJA. Open-source template for student developers.</p>
+  </footer>
+
+  <!-- ==================== INTERACTIVE DEVELOPER TERMINAL OVERLAY ==================== -->
+  <div id="terminal-overlay" class="terminal-overlay">
+    <div class="terminal-container">
+      <!-- Terminal Header Bar -->
+      <div class="ide-header flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="window-dots">
+            <span class="window-dot dot-red"></span>
+            <span class="window-dot dot-yellow"></span>
+            <span class="window-dot dot-green"></span>
+          </div>
+          <span class="text-xs font-mono text-slate-400 font-bold ml-2">bash — tharak@portfolio: ~ (Interactive CLI)</span>
+        </div>
+        <button id="terminal-close-btn" class="text-slate-400 hover:text-white text-xs px-2 py-1 rounded bg-slate-800/80 transition-colors" title="Close Terminal (Esc)">
+          <i class="fa-solid fa-xmark"></i> Esc
+        </button>
+      </div>
+
+      <!-- Terminal Output Body -->
+      <div id="terminal-body" class="terminal-body space-y-1">
+        <!-- Injected dynamically via terminal.js -->
+      </div>
+
+      <!-- Terminal Real Input Row -->
+      <div class="terminal-input-row">
+        <span class="terminal-prompt-label">tharak@portfolio:~$</span>
+        <input type="text" id="terminal-input" class="terminal-real-input" placeholder="Type 'help', 'projects', 'skills', 'matrix'..." autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DEEP DIVE CASE STUDY MODAL ==================== -->
+  <div id="case-study-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-case-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/80 transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div id="case-study-modal-body">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTERACTIVE RESUME PREVIEW MODAL ==================== -->
+  <div id="resume-modal" class="modal-overlay">
+    <div class="modal-content !max-w-4xl">
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-file-invoice text-sky-400 text-lg"></i>
+          <h3 class="font-bold text-slate-100 text-lg">Resume Preview</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="print-resume-btn" class="btn-primary !py-1.5 !px-3 !text-xs">
+            <i class="fa-solid fa-print"></i> Print / Save as PDF
+          </button>
+          <button id="close-resume-modal-btn" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/80 transition-colors">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div id="resume-modal-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <!-- 1. Portfolio Data Source -->
+  <script src="js/portfolio-data.js"></script>
+  <!-- 2. Algorithm Visualizer -->
+  <script src="js/visualizer.js"></script>
+  <!-- 3. Terminal Emulator -->
+  <script src="js/terminal.js"></script>
+  <!-- 4. Main App Controller -->
+  <script src="js/app.js"></script>
+
+  <!-- Mobile Hamburger Menu Controller -->
+  <script>
+    document.getElementById('mobile-menu-toggle')?.addEventListener('click', () => {
+      const menu = document.getElementById('mobile-nav-menu');
+      if (menu) menu.classList.toggle('hidden');
+    });
+    // Close mobile nav when clicking a link
+    document.querySelectorAll('#mobile-nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-nav-menu')?.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
